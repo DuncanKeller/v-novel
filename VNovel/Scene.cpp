@@ -1,7 +1,6 @@
 #include "Scene.h"
 
-Scene::Scene(void)
-{
+Scene::Scene(void) {
 	backdrop = NULL;
 	text = "";
 	SDL_WM_SetCaption( "TTF Test", NULL );
@@ -10,13 +9,11 @@ Scene::Scene(void)
 	ptr = commands.begin();
 }
 
-Scene::~Scene(void)
-{
+Scene::~Scene(void) {
 	TTF_CloseFont( font );
 }
 
-void Scene::Run()
-{
+void Scene::Run() {
 	string debugStr(*ptr);
 		std::wstring stemp = std::wstring(debugStr.begin(), debugStr.end());
 		LPCWSTR sw = stemp.c_str();
@@ -26,21 +23,18 @@ void Scene::Run()
 	ptr++;
 }
 
-void Scene::Load()
-{
+void Scene::Load() {
 	ifstream input;
 	input.open("script.txt");
 
-	if(input.fail())
-	{
+	if(input.fail()) {
 		OutputDebugString(L"failure");
 		return;
 	}
 
 	char line[255];
 
-	while(true) 
-	{
+	while(true)  {
 		input.getline(line, 255);
 
 		// test for end of file
@@ -55,12 +49,10 @@ void Scene::Load()
 		}
 	}
 
-
 	input.close();
 }
 
-void Scene::Command(string cmd) 
-{
+void Scene::Command(string cmd) {
 	int pos = 0;
 	bool first = true;
 	string name = "";
@@ -75,59 +67,43 @@ void Scene::Command(string cmd)
 				pos = i + 1;
 				first = false;
 			}
-		}
-		else if(!first)
-		{
- 			if(cmd[i] == ']')
-			{
+		} else if(!first) {
+ 			if(cmd[i] == ']') {
  				string n = cmd.substr(pos, i - pos);
 				name = n;
-				if(actors[name] == NULL)
-				{
+				if(actors[name] == NULL) {
 					actors[name] = new Actor(name);
 				}
 				first = true;
-			} 
-			else if(cmd[i] == '\"')
-			{
+			} else if(cmd[i] == '\"') {
 				string s = name + ": \"" + cmd.substr(pos, i - pos) + "\"";
 				text = s;
 				first = true;
-			}
-			else if(cmd[i] == '\'')
-			{
+			} else if(cmd[i] == '\'') {
 				string s = "\"" +cmd.substr(pos, i - pos);
 				text = s;
 				first = true;
-			}
-			else if(cmd[i] == '>')
-			{
+			} else if(cmd[i] == '>') {
 				string e = cmd.substr(pos, i - pos);
 				actors[name]->SetExpression(e);
 				first = true;
 			} 
-			else if(cmd[i] == '}')
-			{
+			else if(cmd[i] == '}') {
 				string a = cmd.substr(pos, i - pos);
 				//actors[name]->SetExpression(e);
 				first = true;
-			} 
-			else if(cmd[i] == ')')
-			{
-				if(cmd[pos - 4] == 'b' && cmd[pos - 3] == 'k' && cmd[pos - 2] == 'g')
-				{
+			} else if(cmd[i] == ')') {
+				if(cmd[pos - 4] == 'b' && cmd[pos - 3] == 'k' && cmd[pos - 2] == 'g') {
 					string b = "backdrops\\" + cmd.substr(pos, i - pos) + ".jpg";
 					backdrop = IMG_Load(  b.c_str() );
 				}
 				first = true;
-			}
-			
+			}			
 		}
 	}
 }
 
-void Scene::Draw(SDL_Surface* surface)
-{
+void Scene::Draw(SDL_Surface* surface) {
 	char* str =  new char[text.length()+1];
 	strcpy(str, text.c_str());
 	SDL_Rect backdropRect;
@@ -152,8 +128,7 @@ void Scene::Draw(SDL_Surface* surface)
 	WrapText(str, 20, 460, 750, surface);
 }
 
-void Scene::WrapText( const char *text, Uint16 x, Uint16 y, Uint16 Width, SDL_Surface* surface )
-{
+void Scene::WrapText( const char *text, Uint16 x, Uint16 y, Uint16 Width, SDL_Surface* surface ) {
 	Uint16 text_Width = Width - 40;		// -- holds the maximum width a line can be (in pixels)
 	std::vector < std::string > lines;	// -- these are the individual lines of text
 	std::string temp( text );		// -- holds the current line of text
@@ -161,12 +136,10 @@ void Scene::WrapText( const char *text, Uint16 x, Uint16 y, Uint16 Width, SDL_Su
 	Uint32 n = 0;	// -- Holds the index of the current index to find out if it is past the box
 	Uint32 p = 0;	// -- Holds the index of the previous space so that the wrod that goes past the end gets wrapped to the next line
 	// -- Get until either ' ' or '\0'
-	while( n != -1 )
-	{
+	while( n != -1 ) {
 		std::string strSub;
 		n = temp.find( " ", p + 1 );		// -- Find the next " "
-		if( (n * 16) >= text_Width )
-		{
+		if( (n * 16) >= text_Width ) {
 			strSub = temp.substr( 0, p );	// -- sets strSub to the of the current line
 			lines.push_back( strSub );	// -- Puts strSub into the lines vector
 			if( n != -1 ){
@@ -200,8 +173,7 @@ void Scene::WrapText( const char *text, Uint16 x, Uint16 y, Uint16 Width, SDL_Su
 		SDL_FreeSurface(sfc);
 
 		// -- Draws the text for each line of text onto the box
-		for( Uint8 i = 0; i < lines.size(); i++ )
-		{
+		for( Uint8 i = 0; i < lines.size(); i++ ) {
 			const char *txtPtr = lines[i].c_str();
 
 			SDL_Rect offset;
