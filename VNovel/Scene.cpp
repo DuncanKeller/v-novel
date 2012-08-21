@@ -70,7 +70,7 @@ void Scene::Command(string cmd)
 		{
 			if(cmd[i] == '[' || cmd[i] == '\"'  ||
 				cmd[i] == '<' || cmd[i] == '\'' || 
-				cmd[i] == '(')
+				cmd[i] == '(' || cmd[i] == '{')
 			{
 				pos = i + 1;
 				first = false;
@@ -104,6 +104,12 @@ void Scene::Command(string cmd)
 			{
 				string e = cmd.substr(pos, i - pos);
 				actors[name]->SetExpression(e);
+				first = true;
+			} 
+			else if(cmd[i] == '}')
+			{
+				string a = cmd.substr(pos, i - pos);
+				//actors[name]->SetExpression(e);
 				first = true;
 			} 
 			else if(cmd[i] == ')')
