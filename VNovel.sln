@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VNovel", "VNovel\VNovel.vcxproj", "{3DEBD1C4-22D0-4340-BA61-74B7AA19A800}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DEBD1C4-22D0-4340-BA61-74B7AA19A800}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3DEBD1C4-22D0-4340-BA61-74B7AA19A800}.Debug|Win32.Build.0 = Debug|Win32
+		{3DEBD1C4-22D0-4340-BA61-74B7AA19A800}.Release|Win32.ActiveCfg = Release|Win32
+		{3DEBD1C4-22D0-4340-BA61-74B7AA19A800}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

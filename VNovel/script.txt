@@ -1,0 +1,5 @@
+bkg(test) [duncan] <angry> "where did you put my pop tart?"
+
+[duncan] {move-down}, sfx(pick-up)
+
+[duncan] <default> {move-up} "nevermind, it was on the floor."
