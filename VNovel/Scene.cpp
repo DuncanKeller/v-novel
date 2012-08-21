@@ -19,6 +19,7 @@ void Scene::Run() {
 		LPCWSTR sw = stemp.c_str();
 		OutputDebugString(sw);
 		OutputDebugString(L"\n");
+	text = "";
 	Command(*ptr);
 	ptr++;
 }

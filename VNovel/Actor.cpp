@@ -38,9 +38,13 @@ void Actor::SetPosition(int x, int y) {
 
 void Actor::SetAnimation(string s) {
 	if(s == "move-down") {
-		SetAnimation(rect.x, 600, 200);
+		SetAnimation(rect.x, 550, 200);
 	} else if(s == "move-up") {
 		SetAnimation(rect.x, 0, 60);
+	} else if(s == "move-left") {
+		SetAnimation(-100, rect.y, 150);
+	} else if(s == "move-right") {
+		SetAnimation(800, rect.y, 150);
 	}
 }
 
