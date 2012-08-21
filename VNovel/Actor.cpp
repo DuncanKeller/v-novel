@@ -2,13 +2,20 @@
 
 Actor::Actor(string name) {
 	Actor::name = name;
-	rect.w = 400;
-	rect.h = 700;
+	width = 400;
+	height = 700;
+	rect.w = width;
+	rect.h = height;
 	rect.y = 600 - rect.h;
 	rect.x = (800 / 2) - (rect.w / 2);
 }
 
 Actor::~Actor(void) {
+}
+
+void Actor::ResetRect() {
+	rect.w = width;
+	rect.h = height;
 }
 
 void Actor::AddExpression(SDL_Surface* s, string name)  {
@@ -29,11 +36,31 @@ void Actor::SetPosition(int x, int y) {
 	rect.y = y;
 }
 
-void Actor::Update() {
+void Actor::SetAnimation(string s) {
+	if(s == "move-down") {
+		SetAnimation(rect.x, 600, 200);
+	} else if(s == "move-up") {
+		SetAnimation(rect.x, 0, 60);
+	}
+}
 
+void Actor::SetAnimation(int x, int y, int t) {
+	animationLength = t;
+	time = t;
+	moveX = (x - rect.x) / animationLength;
+	moveY = (y - rect.y) / animationLength;
+}
+
+void Actor::Update() {
+	if(time > 0) {
+		rect.x += moveX;
+		rect.y += moveY;
+		time--;
+	}
 }
 
 void Actor::Draw(SDL_Surface* s) {
+	ResetRect();
 	SDL_Rect source;
 	source.x = 0;
 	source.y = 0;

@@ -23,6 +23,13 @@ void Scene::Run() {
 	ptr++;
 }
 
+void Scene::Update() {
+	std::map<std::string, Actor*>::iterator iter;
+	for (iter = actors.begin(); iter != actors.end(); ++iter) {
+		iter->second->Update();
+    }
+}
+
 void Scene::Load() {
 	ifstream input;
 	input.open("script.txt");
@@ -90,7 +97,7 @@ void Scene::Command(string cmd) {
 			} 
 			else if(cmd[i] == '}') {
 				string a = cmd.substr(pos, i - pos);
-				//actors[name]->SetExpression(e);
+				actors[name]->SetAnimation(a);
 				first = true;
 			} else if(cmd[i] == ')') {
 				if(cmd[pos - 4] == 'b' && cmd[pos - 3] == 'k' && cmd[pos - 2] == 'g') {

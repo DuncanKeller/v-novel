@@ -44,6 +44,8 @@ int main(int argc, char **argv)
 			}
 		}
 
+		scene.Update();
+
 		oldkeystates = SDL_GetKeyState( NULL );
    
 		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 0, 150, 150));

@@ -1,15 +1,23 @@
-﻿Build started 8/20/2012 11:22:56 PM.
+﻿Build started 8/21/2012 12:26:53 AM.
      1>Project "c:\Users\Duncan\documents\visual studio 2010\Projects\VNovel\VNovel\VNovel.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\VNovel.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Actor.cpp
+         Actor.cpp
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\duncan\documents\visual studio 2010\Projects\VNovel\Debug\VNovel.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SDL-1.2.14\lib" SDL_image.lib SDL_ttf.lib SDL.lib SDLmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\VNovel.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\users\duncan\documents\visual studio 2010\Projects\VNovel\Debug\VNovel.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\duncan\documents\visual studio 2010\Projects\VNovel\Debug\VNovel.lib" /MACHINE:X86 Debug\VNovel.exe.embed.manifest.res
+         Debug\Actor.obj
+         Debug\main.obj
+         Debug\Scene.obj
        Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\VNovel.exe.embed.manifest" /manifest Debug\VNovel.exe.intermediate.manifest
          All outputs are up-to-date.
+       LinkEmbedManifest:
+         All outputs are up-to-date.
+         VNovel.vcxproj -> c:\users\duncan\documents\visual studio 2010\Projects\VNovel\Debug\VNovel.exe
        FinalizeBuildStatus:
          Deleting file "Debug\VNovel.unsuccessfulbuild".
          Touching "Debug\VNovel.lastbuildstate".
@@ -17,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.04
+Time Elapsed 00:00:00.85
