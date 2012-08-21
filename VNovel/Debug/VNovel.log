@@ -1,4 +1,4 @@
-﻿Build started 8/20/2012 10:40:27 PM.
+﻿Build started 8/20/2012 11:22:56 PM.
      1>Project "c:\Users\Duncan\documents\visual studio 2010\Projects\VNovel\VNovel\VNovel.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\VNovel.unsuccessfulbuild" because "AlwaysCreate" was specified.
@@ -17,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.05
+Time Elapsed 00:00:00.04
